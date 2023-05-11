@@ -3,16 +3,13 @@ kind: Service
 metadata:
   name: {{ .Values.name.service }}
   namespace: {{ .Values.namespace }}
-  #  labels:
-  #    {{- include "gong2.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: 9082 #{{ .Values.service.port }}
+    - port: 9082 
       targetPort: 8080
       protocol: TCP
       name: tomcat-port
       nodePort: 30033
   selector:
     app: gong-institute-tomcat
-          #    {{- include "gong2.selectorLabels" . | nindent 4 }}

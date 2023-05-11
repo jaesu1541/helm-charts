@@ -5,14 +5,12 @@ metadata:
   namespace: {{ .Values.namespace }}
   labels:
      app: gong-institute
-#    {{- include "gong2.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-            #      {{- include "gong2.selectorLabels" . | nindent 6 }}
       app: gong-institute-tomcat
   template:
     metadata:
@@ -21,14 +19,12 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-              #        {{- include "gong2.selectorLabels" . | nindent 8 }}
         app: gong-institute-tomcat
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      #serviceAccountName: {{ include "gong2.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -41,14 +37,6 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-              #          livenessProbe:
-              #            httpGet:
-              #              path: /
-              #              port: http
-              #          readinessProbe:
-              #            httpGet:
-              #              path: /
-              #              port: http
           volumeMounts:
           - name: rootpath
             mountPath: /usr/local/tomcat/webapps
