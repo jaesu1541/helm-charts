@@ -15,7 +15,10 @@ nameOverride: ""
 fullnameOverride: ""
 
 name:
-  service: "gong_institute_service"
+  service: "gong-institute-service"
+  deploy: "gong-institute-deployment"
+
+namespace: "gongsiin"
 
 labels:
   name: "gong-institute"
