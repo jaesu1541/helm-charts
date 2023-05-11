@@ -4,14 +4,16 @@ metadata:
   name: {{ .Values.name.deploy }}
   namespace: {{ .Values.namespace }}
   labels:
-    {{- include "gong2.labels" . | nindent 4 }}
+     app: gong-institute
+#    {{- include "gong2.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "gong2.selectorLabels" . | nindent 6 }}
+            #      {{- include "gong2.selectorLabels" . | nindent 6 }}
+      app: gong-institute-tomcat
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -19,7 +21,8 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "gong2.selectorLabels" . | nindent 8 }}
+              #        {{- include "gong2.selectorLabels" . | nindent 8 }}
+        app: gong-institute-tomcat
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -38,14 +41,14 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
+              #          livenessProbe:
+              #            httpGet:
+              #              path: /
+              #              port: http
+              #          readinessProbe:
+              #            httpGet:
+              #              path: /
+              #              port: http
           volumeMounts:
           - name: rootpath
             mountPath: /usr/local/tomcat/webapps
@@ -65,12 +68,12 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-    volumes:
-    - name: rootpath
-      hostPath:
-        path: /nfsdata/gong_institute/webapps
-        type: Directory
-    - name: confpath
-      hostPath:
-        path: /nfsdata/gong_institute/conf
-        type: Directory
+      volumes:
+      - name: rootpath
+        hostPath:
+          path: /nfsdata/gong_institute/webapps
+          type: Directory
+      - name: confpath
+        hostPath:
+          path: /nfsdata/gong_institute/conf
+          type: Directory
