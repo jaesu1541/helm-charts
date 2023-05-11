@@ -2,14 +2,15 @@
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "gongsiin_institute.fullname" . }}
+  name: {{ .Values.name.deploy }}
+  namespace: {{ .Values.namespace }}
   labels:
     {{- include "gongsiin_institute.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "gongsiin_institute.fullname" . }}
+    name: {{ .Values.name.deploy }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:
