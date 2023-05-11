@@ -3,12 +3,12 @@ entries:
   gongsiin_institute:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-11T07:26:11.115167774Z"
+    created: "2023-05-11T07:30:27.620474804Z"
     description: A Helm chart for Kubernetes
-    digest: bcc51aafc0055f0e9c12b692af08211a835be529c52a9fab37e44dcfaa6e5c20
+    digest: 25f7269c432610b29269090c8cb2ba083afd87b32f011759cba43ff82aeb7b2c
     name: gongsiin_institute
     type: application
     urls:
     - gongsiin_institute-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-11T07:26:11.1143323Z"
+generated: "2023-05-11T07:30:27.619668197Z"
