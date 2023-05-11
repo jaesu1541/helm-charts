@@ -47,10 +47,10 @@ spec:
               path: /
               port: http
           volumeMounts:
-          - mountPath: /usr/local/tomcat/webapps
-            name: rootpath
-          - mountPath: /usr/local/tomcat/conf
-            name: confpath
+          - name: rootpath
+            mountPath: /usr/local/tomcat/webapps
+          - name: confpath
+            mountPath: /usr/local/tomcat/conf
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
@@ -66,11 +66,11 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
     volumes:
-    - hostPath:
+    - name: rootpath
+      hostPath:
         path: /nfsdata/gong_institute/webapps
         type: Directory
-      name: rootpath
-    - hostPath:
+    - name: confpath
+      hostPath:
         path: /nfsdata/gong_institute/conf
         type: Directory
-      name: confpath
