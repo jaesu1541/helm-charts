@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.name.deploy }}
-  namespace: {[ .Values.namespace }}
+  namespace: {{ .Values.namespace }}
   labels:
     {{- include "gongsiin_institute.labels" . | nindent 4 }}
 spec:
