@@ -49,7 +49,7 @@ spec:
           volumeMounts:
           - mountPath: /usr/local/tomcat/webapps
             name: rootpath
-          - mountPath: /usr/local/tomcata/conf
+          - mountPath: /usr/local/tomcat/conf
             name: confpath
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

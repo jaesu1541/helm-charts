@@ -3,12 +3,12 @@ entries:
   gong2:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-11T08:08:59.943810687Z"
+    created: "2023-05-11T08:14:07.80000446Z"
     description: A Helm chart for Kubernetes
-    digest: 4ab6e3e78e925f9e966eebdb22a72a0ce6231462870458d728d441d198d197f6
+    digest: a2abbc074cd343cead4173297087280e755efebdf0e146c985231aced5cd679c
     name: gong2
     type: application
     urls:
     - gong2-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-11T08:08:59.943137761Z"
+generated: "2023-05-11T08:14:07.799292184Z"
