@@ -1,9 +1,30 @@
 apiVersion: v1
 entries:
+  gong2:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-05-12T05:58:01.849238542Z"
+    description: A Helm chart for Kubernetes
+    digest: c7ea4e884d87ed2ea6ca4527e43e28f2e0c58e71462e34fc4037a038215b423e
+    name: gong2
+    type: application
+    urls:
+    - gong2-0.1.0.tgz
+    version: 0.1.0
   helm-test:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-12T04:27:37.236061917Z"
+    created: "2023-05-12T05:58:01.850211954Z"
+    description: A Helm chart for Kubernetes
+    digest: d1d3cce07287fb4f4e1ae907fc96eef6575b24ec92f6835cb666964c5387624b
+    name: helm-test
+    type: application
+    urls:
+    - helm-test-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-05-12T05:58:01.849726751Z"
     description: A Helm chart for Kubernetes
     digest: 3a6309bfc1ce4bbcaaa9b534eae0e822676cc067bd699ec3dbdfdcfc42dde655
     name: helm-test
@@ -11,4 +32,4 @@ entries:
     urls:
     - helm-test-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-12T04:27:37.233058428Z"
+generated: "2023-05-12T05:58:01.84847792Z"
